@@ -15,7 +15,6 @@ class Api {
       final result = await InternetAddress.lookup('google.com');
 
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        print("Bearer" + box.read("accesstoken"));
         print(Urls().baseurl + apiname);
         var response = await dio.post(
           Urls().baseurl + apiname,
@@ -23,7 +22,7 @@ class Api {
           options: Options(
             headers: {
               "Accept-Language": "en-US",
-              "Authorization": "Bearer " + box.read("accesstoken")
+              // "Authorization": "Bearer " + box.read("accesstoken")
             },
             validateStatus: (status) {
               return status! < 500;
